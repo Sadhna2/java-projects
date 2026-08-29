@@ -1,0 +1,24 @@
+# Eclipse workspace
+.metadata/
+
+# Eclipse project settings
+.settings/
+**/.settings/
+
+# Eclipse generated files
+bin/
+**/bin/
+
+# Eclipse configuration files
+.classpath
+**/.classpath
+
+.project
+**/.project
+
+# Java compiled files
+*.class
+
+# Maven target folders
+target/
+**/target/
