@@ -1,0 +1,73 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="annotationbased"/>
+
+
+	
+		<bean id="hello" class="sample.HelloSpring" scope="prototype">
+
+			<constructor-arg name="code" value="1001"></constructor-arg>
+			<constructor-arg name="name" value="Rod Johnson"></constructor-arg>
+
+			<property name="code" value="12345">
+			</property>
+			<property name="name" value="Nexturn">
+			</property>
+
+		</bean>
+		<bean id="acc" class="sample.Account" scope="prototype">
+			<property name="accountNo" value="1234578" />
+			<property name="balance" value="599807.00" />
+		</bean>
+
+		<!-- Customer Bean -->
+		<bean id="cust" class="sample.Customer" autowire="constructor">
+			<property name="code" value="1001" />
+			<property name="name" value="Rod Johnson" />
+
+		</bean>
+		<!-- Employee Object -->
+		<!-- Address Bean -->
+		<bean id="addr" class="sample.Address">
+			<property name="city" value="Hyderabad" />
+			<property name="street" value="Shamirpet" />
+
+		</bean>
+		<bean id="empl" class="sample.Employee" autowire="constructor"
+		 init-method="start" destroy-method="stop">
+
+			<constructor-arg name="code" value="1001" />
+			<constructor-arg name="name" value="Sadhna" />
+			<constructor-arg name="salary" value="50000" />
+
+		</bean>
+		<bean id="employee" class="sample.Employee" autowire="byType">
+			<property name="code" value="1001" />
+			<property name="name" value="Sadhna" />
+			<property name="salary" value="50000" />
+			<!-- <property name="address" ref="addr" /> -->
+
+		</bean>
+		<bean id="student" class="sample.Student">
+			<property name="regno" value="1001" />
+			<property name="stdname" value="Sadhna" />
+			<property name="subjects">
+				<list>
+					<value>Java</value>
+					<value>Spring</value>
+					<value>ReactJs</value>
+				</list>
+			</property>
+		</bean>
+
+
+</beans>
